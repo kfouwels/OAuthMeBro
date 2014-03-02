@@ -19,10 +19,11 @@ namespace BroAuth.Twitter
 			//get token
 			var request = (HttpWebRequest)WebRequest.Create("https://api.twitter.com/oauth2/token");
 			request.Method = "POST";
+			request.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
 
-			request.Headers["Authorisation"] = "Basic ";
+			request.Headers["Authorisation"] = "Basic " + encd;
 
-			string post = "myPostID=myPostValue&myPostID2=myPostValue2";
+			var post = "grant_type=client_credentials";
 
 			using (var writer = new StreamWriter(await request.GetRequestStreamAsync()))
 			{
