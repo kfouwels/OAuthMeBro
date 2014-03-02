@@ -1,6 +1,6 @@
 #OAuthMeBro
 
-###Usage
+###Intended Usage
 
 //Create a new bro
 var bro = new TwitterBro();

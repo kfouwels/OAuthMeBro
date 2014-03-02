@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using BroAuth;
+using BroAuth.Twitter;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,7 +26,13 @@ namespace TestApp
         public MainPage()
         {
             this.InitializeComponent();
-	        var bro = new BroAuth.Twitter.TwitterBro();
         }
+	    public async void PollTwitter()
+	    {
+			var bro = new TwitterBro();
+			await bro.Handshake("aasdasdasd", "asdasdad");
+			var results = bro.GetMeTweets("peanuts", "recent", 20);
+		    
+	    }
     }
 }
