@@ -27,10 +27,16 @@ namespace TestApp
         {
             this.InitializeComponent();
         }
+
+	    protected override void OnNavigatedTo(NavigationEventArgs e)
+	    {
+		    PollTwitter();
+	    }
+
 	    public async void PollTwitter()
 	    {
 			var bro = new TwitterBro();
-			await bro.Handshake("aasdasdasd", "asdasdad");
+			await bro.Handshake(BroAuth.Secrets.ApiKey, BroAuth.Secrets.ApiSecret);
 			var results = bro.GetMeTweets("peanuts", "recent", 20);
 		    
 	    }

@@ -12,24 +12,31 @@ namespace BroAuth.Twitter
 	{
 		public async Task Handshake(string consumerKey, string consumerSecret)
 		{
-			//encode keys
-			var mash = consumerKey + ":" + consumerSecret;
-			var encd = Convert.ToBase64String(Encoding.Unicode.GetBytes(mash));
-
-			//get token
-			var request = (HttpWebRequest)WebRequest.Create("https://api.twitter.com/oauth2/token");
-			request.Method = "POST";
-			request.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
-
-			request.Headers["Authorisation"] = "Basic " + encd;
-
-			var post = "grant_type=client_credentials";
-
-			using (var writer = new StreamWriter(await request.GetRequestStreamAsync()))
+			try
 			{
-				writer.Write(post);
+				//encode keys
+				var mash = consumerKey + ":" + consumerSecret;
+				var encd = Convert.ToBase64String(Encoding.Unicode.GetBytes(mash));
+
+				//get token
+				var request = (HttpWebRequest)WebRequest.Create("https://api.twitter.com/oauth2/token");
+				request.Method = "POST";
+				request.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+
+				request.Headers["Authorisation"] = "Basic " + encd;
+
+				var post = "grant_type=client_credentials";
+
+				using (var writer = new StreamWriter(await request.GetRequestStreamAsync()))
+				{
+					writer.Write(post);
+				}
+				var response = await request.GetResponseAsync();
 			}
-			var response = await request.GetResponseAsync();
+			catch (Exception ex)
+			{
+				throw;
+			}
 
 			throw new NotImplementedException();
 		}

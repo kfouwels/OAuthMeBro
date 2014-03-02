@@ -1,4 +1,6 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
+    <LocalAssembly PathName="e:\dev\win32\2014\oauthmebro\broauth\testapp\obj\debug\intermediatexaml\testapp.exe" HashGuid="d08a93e7-9c9a-bc0d-1a0a-dd37d87aebf4" />
+    <ReferenceAssembly PathName="e:\dev\win32\2014\oauthmebro\broauth\broauth\bin\debug\broauth.dll" HashGuid="27b28b51-c5ac-7c5f-f6be-e2fe1faf3e67" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

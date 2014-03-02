@@ -8,7 +8,7 @@ namespace BroAuth
 {
 	public interface ITwitterBro
 	{
-		Task Handshake(string apiKey, string apiSecret);
+		Task Handshake(string consumerKey, string consumerSecret);
 		string GetMeTweets(string query, string result_type, int count);
 	}
 }
