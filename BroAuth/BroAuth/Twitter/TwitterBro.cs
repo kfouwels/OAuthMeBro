@@ -10,11 +10,17 @@ namespace BroAuth.Twitter
 {
 	public class TwitterBro : ITwitterBro
 	{
-		public async Task Handshake(string apiKey, string apiSecret)
+		public async Task Handshake(string consumerKey, string consumerSecret)
 		{
+			//encode keys
+			var mash = consumerKey + ":" + consumerSecret;
+			var encd = Convert.ToBase64String(Encoding.Unicode.GetBytes(mash));
+
 			//get token
 			var request = (HttpWebRequest)WebRequest.Create("https://api.twitter.com/oauth2/token");
 			request.Method = "POST";
+
+			request.Headers["Authorisation"] = "Basic ";
 
 			string post = "myPostID=myPostValue&myPostID2=myPostValue2";
 
