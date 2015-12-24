@@ -15,4 +15,4 @@ bro.Handshake("apiKey", "apiSecret")
 var results = bro.getMeTweets("query", "result_type", count);
 
 ```
-__Edit (2015): Just use linqtotwitter - it's pretty swaggy now__
+__Edit (2015): Just use linqtotwitter - it's pretty great now__
